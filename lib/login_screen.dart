@@ -81,28 +81,32 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: _isLoading
           ? const Center(child: CircularProgressIndicator.adaptive())
-          : Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Spacer(),
-                const Padding(
-                  padding: EdgeInsets.only(left: 50.0, right: 50.0),
-                  child: Text('Login example'),
-                ),
-                const SizedBox(height: 80),
-                FilledButton(
-                  style:
-                      FilledButton.styleFrom(minimumSize: const Size(120, 56)),
-                  onPressed: _loggingIn ? null : _login,
-                  child: Text(
-                    'Login',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headlineSmall!
-                        .copyWith(color: Colors.white),
+          : Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Spacer(),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 50.0, right: 50.0),
+                    child: Text('Login Example',
+                        style: Theme.of(context).textTheme.displayMedium),
                   ),
-                ),
-              ],
+                  const SizedBox(height: 80),
+                  FilledButton(
+                    style: FilledButton.styleFrom(
+                        minimumSize: const Size(120, 56)),
+                    onPressed: _loggingIn ? null : _login,
+                    child: Text(
+                      'Login',
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineSmall!
+                          .copyWith(color: Colors.white),
+                    ),
+                  ),
+                  const Spacer(),
+                ],
+              ),
             ),
     );
   }
